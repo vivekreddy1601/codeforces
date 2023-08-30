@@ -1,6 +1,6 @@
 //code by Vivek Reddy
 #include <iostream>
-#define int long long
+#define ll long long
 using namespace std;
 
 int main()
@@ -8,14 +8,14 @@ int main()
     int vt;
     cin >> vt;
     while(vt--){
-        int n;
+        ll n;
         cin >> n;
-        int a[n+1];
-        for(int i = 1; i <= n;i++)
+        ll a[n+1];
+        for(ll i = 1; i <= n;i++)
             cin >> a[i];
-        int an = 0;
-        for(int i = 1; i <= n;i++){
-            for(int j = a[i]-i;j <=n;j+=a[i]){
+        ll an = 0;
+        for(ll i = 1; i <= n;i++){
+            for(ll j = a[i]-i;j <=n;j+=a[i]){
                 if(j >= 0)
                     if(a[i]*a[j]==i+j && i < j)
                         an++;
@@ -23,5 +23,4 @@ int main()
         }
         cout << an << endl;
     }
-    return 0;
 }
