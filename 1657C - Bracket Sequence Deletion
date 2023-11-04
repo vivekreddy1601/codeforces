@@ -1,0 +1,44 @@
+//code by Vivek Reddy
+#include <bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+int main()
+{
+    ll vt;
+    cin >> vt;
+    while(vt--){
+        ll n,move = 0,pos=-1;
+        cin >> n;
+        string s;
+        cin >> s;
+        stack<char> st;
+        for(ll i = 0; i < n;i++){
+            if(st.size()){
+                move++;
+                pos = i;
+                st.pop();
+            }else{
+                if(s[i]=='('){
+                    st.push(s[i]);
+                }else{
+                pos = i-1;
+                bool flag = false;
+                for(ll j = i+1;j < n;j++){
+                    if(s[j]==')'){
+                        pos = j;
+                        i = j;
+                        flag = true;
+                        move++;
+                        break;
+                    }
+                }
+                if(!flag)
+                    break;
+                }
+            }
+        }
+        cout << move << " " << n-pos-1 << endl;
+    }
+    return 0;
+}
