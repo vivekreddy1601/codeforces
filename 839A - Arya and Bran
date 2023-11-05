@@ -1,0 +1,40 @@
+//code by Vivek Reddy
+#include <iostream>
+#define ll long long
+using namespace std;
+
+int main()
+{
+    ll n,k,t=0,c=0;
+    cin >>n >> k;
+    ll a[n];
+    for(int i= 0;i < n;i++){
+        cin >> a[i];
+    }
+    for(int i = 0; i < n-1;i++){
+        if(t < k){
+            if(a[i]>8){
+                a[i+1]+=a[i]-8;
+                t+=8;
+                c++;
+            }else{
+                t+=a[i];
+                c++;
+            }
+        }else
+            break;
+    }
+    if(t < k){
+        if(a[n-1]>8){
+                t+=8;
+        }else{
+                t+=a[n-1];
+        }
+        c++;
+    }
+    if(t < k)
+        cout << -1 << endl;
+    else
+        cout << c << endl;
+    return 0;
+}
