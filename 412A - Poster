@@ -1,0 +1,28 @@
+//code by Vivek Reddy
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n,k;
+    cin >> n>> k;
+    string s;
+    cin >> s;
+    string ini = "LEFT",next = "RIGHT";
+    int f = k-1,p = 0,d=1;
+    if(n-k<k-1){
+        ini = "RIGHT";
+        next = "LEFT";
+        f = n-k;
+        p = n-1;
+        d = -1;
+    }
+    for(int p = 0;p < f;p++)
+        cout << ini << endl;
+    cout << "PRINT " << s[p] << endl;
+    for(int i = 1;i < s.size();i++){
+        cout << next << endl;
+        cout << "PRINT " << s[p+d*i] << endl;
+    }
+    return 0;
+}
