@@ -10,9 +10,26 @@ int main()
     while(vt--){
         ll n; 
         cin >> n;
-        ll a[n];
+        vector<ll> a(n);
         for(int i = 0;i < n;i++)
             cin >> a[i];
+        sort(a.rbegin(),a.rend());
+        ll e = 0,o = 0, c = 0;
+        for(int i= 0; i < n;i++,c++){
+            if(c%2==0){
+                if(a[i]%2==0){
+                    e+=a[i];
+                }
+            }else{
+                if(a[i]%2==1)
+                    o+=a[i];
+            }
+        }
+        cout << (e>=o ? (e==o ? "Tie" : "Alice"):"Bob") << '\n';
+        
+            
+        
+        /*
         vector<int> even,odd;
         for(int i= 0; i < n;i++){
             if(a[i]%2==0)
@@ -67,6 +84,7 @@ int main()
             }
         }
         cout << (e>=o ? (e==o ? "Tie" : "Alice"):"Bob") << '\n';
+        */
     }
     return 0;
 }
