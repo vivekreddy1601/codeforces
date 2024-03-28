@@ -2,22 +2,29 @@
 #include <bits/stdc++.h>
 #define ll long long
 using namespace std;
-
+bool compare(pair<ll,ll> &a, pair<ll,ll> &b){
+    return a.second < b.second;
+}
 int main()
 {
-    ll n,m;
-    vector<ll> a;
+    ll n,m,ans=0;
+    vector<pair<ll,ll>> a;
     cin >>n >> m;
     while(m--){
         ll x,y;
         cin >> x >> y;
-        while(x--)
-            a.push_back(y);
+        a.push_back({x,y});
     }
-    sort(a.rbegin(),a.rend());
-    ll ans = 0;
-    for(int i = 0; i < n && i < a.size();i++)
-        ans+=a[i];
-    cout << ans << endl;
+    sort(a.rbegin(),a.rend(),compare);
+    for(int i = 0; n > 0 && i < a.size();i++){
+        if(a[i].first > n){
+            ans += n*a[i].second;
+            n = 0;
+        }else{
+            ans += a[i].first * a[i].second;
+            n-= a[i].first;
+        }
+    }
+    cout << ans << '\n';
     return 0;
 }
