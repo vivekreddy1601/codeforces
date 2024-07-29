@@ -1,5 +1,6 @@
 //code by Vivek Reddy
 #include <iostream>
+#define ll long long
 using namespace std;
 
 int main()
@@ -7,16 +8,16 @@ int main()
     int vt;
     cin >> vt;
     while(vt--){
-        int x,n,ans=1;
+        ll x,n,ans=1;
         cin >> x >> n;
-        for(int i = 1;i*i<=x;i++){
+        for(ll i = 1;i*i<=x;i++){
             if(x%i==0){
-                int left = x-(i*n);
+                ll left = x-(i*n);
                 if(left >= 0 && left%i==0)
                     ans=max(ans,i);
                 if(x/i!=i){
-                    int ii = x/i;
-                    int le = x - (ii*n);
+                    ll ii = x/i;
+                    ll le = x - (ii*n);
                     if(le>=0&&le%ii==0)
                         ans = max(ans,ii);
                 }
